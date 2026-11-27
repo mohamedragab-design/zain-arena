@@ -1,0 +1,17 @@
+#be-contact{padding:70px 20px;font-family:inherit}
+#be-contact .be-box{max-width:620px;margin:0 auto}
+#be-contact h2{margin:0 0 20px;font-size:clamp(26px,5vw,38px)}
+#be-contact form{display:grid;gap:12px}
+#be-contact input,#be-contact textarea{width:100%;padding:14px 16px;border-radius:14px;font:inherit;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:inherit;outline:none}
+#be-contact input:focus,#be-contact textarea:focus{border-color:var(--be-a)}
+#be-contact ::placeholder{color:inherit;opacity:.6}
+#be-contact .be-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+#be-contact button{min-height:50px;border:0;border-radius:99px;background:var(--be-a);color:#0a0a0a;font:inherit;font-weight:700;cursor:pointer;transition:transform .2s}
+#be-contact button:hover{transform:translateY(-2px)}
+#be-contact button:disabled{opacity:.6}
+#be-contact .be-msg{min-height:1.4em;margin:0;opacity:.9}
+#be-contact .be-visits{margin:22px 0 0;text-align:center;opacity:.7;font-size:14px}
+.be-zain{--be-a:#3dff6a;color:#f4f7ff;background:#1c2b44}
+.be-portfolio{--be-a:#d6b25e;color:#f4efe6;background:#07080b}
+.be-zain,.be-zain *{cursor:auto!important}
+.be-zain button{cursor:pointer!important}
