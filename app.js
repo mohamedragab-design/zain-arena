@@ -26,6 +26,9 @@
     });
   });
 
+  // Progress bar + FAB
+  var pg=document.querySelector('#progress span'), fab=document.getElementById('fab');
+  window.addEventListener('scroll',function(){var s=document.documentElement;pg.style.width=(scrollY/(s.scrollHeight-innerHeight)*100)+'%';if(fab)fab.classList.toggle('show',scrollY>700);},{passive:true});
   // Nav scroll state
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
@@ -55,7 +58,7 @@
       p.y -= p.s; p.x += p.drift;
       if (p.y < -5){ p.y = cv.height+5; p.x = Math.random()*cv.width; }
       ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7);
-      ctx.fillStyle = 'rgba(201,242,78,'+p.o+')'; ctx.fill();
+      ctx.fillStyle = 'rgba(61,255,106,'+p.o+')'; ctx.fill();
     });
     requestAnimationFrame(drawP);
   })();
