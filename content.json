@@ -1,0 +1,211 @@
+{
+ "plans": [
+  {
+   "name": "شهري",
+   "price": "٤٩",
+   "unit": "ج.م / شهر",
+   "features": [
+    "بدون إعلانات",
+    "مزايا إضافية في التوقعات",
+    "مزايا دوري الأصحاب"
+   ],
+   "cta": "اشترك من التطبيق",
+   "popular": false,
+   "tag": ""
+  },
+  {
+   "name": "سنوي",
+   "price": "٣٩٩",
+   "unit": "ج.م / سنة",
+   "features": [
+    "كل مزايا الشهري",
+    "شهرين تقريباً هدية",
+    "أفضل قيمة"
+   ],
+   "cta": "اشترك من التطبيق",
+   "popular": true,
+   "tag": "الأوفر"
+  },
+  {
+   "name": "عائلي",
+   "price": "٧٩",
+   "unit": "ج.م",
+   "features": [
+    "حسابين في سعر واحد",
+    "اللي بيدفع يبعت كود لفرد من العيلة",
+    "الكود بيفعّل الحساب التاني"
+   ],
+   "cta": "اشترك من التطبيق",
+   "popular": false,
+   "tag": "جديد"
+  }
+ ],
+ "videos": [
+  {
+   "title": "كاسات وأنبوبة 🏆",
+   "src": "assets/vid-trophies.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 2",
+   "src": "assets/vid-backkick.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 3",
+   "src": "assets/vid-doctor.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 4",
+   "src": "assets/vid-coach.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 5",
+   "src": "assets/vid-dinner.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 6",
+   "src": "assets/vid-diving.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 7",
+   "src": "assets/vid-doorman.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 8",
+   "src": "assets/vid-boss.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 9",
+   "src": "assets/vid-bench.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 10",
+   "src": "assets/vid-metro.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 11",
+   "src": "assets/vid-alarm.mp4",
+   "visible": true
+  },
+  {
+   "title": "فيديو زين أرينا 12",
+   "src": "assets/vid-charger.mp4",
+   "visible": true
+  },
+  {
+   "title": "لغز تكتيكي ١",
+   "src": "assets/vid-j1.mp4",
+   "visible": true
+  },
+  {
+   "title": "لغز تكتيكي ٢",
+   "src": "assets/vid-j3.mp4",
+   "visible": true
+  },
+  {
+   "title": "اختبار المدرب ١",
+   "src": "assets/vid-m1.mp4",
+   "visible": true
+  },
+  {
+   "title": "اختبار المدرب ٢",
+   "src": "assets/vid-m4.mp4",
+   "visible": true
+  },
+  {
+   "title": "تحدي ١",
+   "src": "assets/vid-n1.mp4",
+   "visible": true
+  },
+  {
+   "title": "تحدي ٢",
+   "src": "assets/vid-n5.mp4",
+   "visible": true
+  },
+  {
+   "title": "تحدي ٣",
+   "src": "assets/vid-n9.mp4",
+   "visible": true
+  },
+  {
+   "title": "تحدي ٤",
+   "src": "assets/vid-n12.mp4",
+   "visible": true
+  }
+ ],
+ "links": {
+  "app": [
+   {
+    "icon": "⬇",
+    "title": "حمّل التطبيق (APK)",
+    "sub": "تحميل مباشر للأندرويد",
+    "url": "https://2.31.182.159/download"
+   },
+   {
+    "icon": "📸",
+    "title": "انستجرام",
+    "sub": "@zain_arena",
+    "url": "https://www.instagram.com/zain_arena"
+   },
+   {
+    "icon": "🎵",
+    "title": "تيك توك",
+    "sub": "@zainarena.app1",
+    "url": "https://www.tiktok.com/@zainarena.app1"
+   },
+   {
+    "icon": "▶",
+    "title": "يوتيوب",
+    "sub": "@zain-arena",
+    "url": "https://www.youtube.com/@zain-arena"
+   },
+   {
+    "icon": "👍",
+    "title": "فيسبوك",
+    "sub": "صفحة زين أرينا",
+    "url": "https://www.facebook.com/profile.php?id=61595853699880"
+   }
+  ],
+  "me": [
+   {
+    "icon": "🌐",
+    "title": "موقعي الشخصي",
+    "sub": "أعمالي وبورتفوليو",
+    "url": "https://mohamedragab-design.github.io/"
+   },
+   {
+    "icon": "🎨",
+    "title": "بيهانس",
+    "sub": "behance.net/mohamedragab189",
+    "url": "https://www.behance.net/mohamedragab189"
+   }
+  ]
+ },
+ "faq": [
+  {
+   "q": "التطبيق متاح فين؟",
+   "a": "متاح دلوقتي لأندرويد بتحميل مباشر (APK)، وعلى جوجل بلاي من ١ ديسمبر ٢٠٢٦."
+  },
+  {
+   "q": "إيه الفرق بين الباقات؟",
+   "a": "بلس الشهري ٤٩ ج.م والسنوي ٣٩٩ ج.م، وكلهم بدون إعلانات ومزايا إضافية. الباقة العائلية ٧٩ ج.م بتديك حسابين."
+  },
+  {
+   "q": "إزاي الحساب العائلي بيشتغل؟",
+   "a": "اللي بيدفع بيبعت كود لأي حد من العيلة، والكود لما يتدخل بيفعّل حساب تاني معاك."
+  },
+  {
+   "q": "التطبيق ببلاش؟",
+   "a": "أيوه، تقدر تستخدم التطبيق ببلاش. باقات بلس لمزايا إضافية وبدون إعلانات."
+  }
+ ]
+}

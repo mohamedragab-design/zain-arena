@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta property="og:title" content="ZAIN ARENA | زين أرينا"><meta property="og:description" content="ساحة واحدة لكل الرياضات"><meta property="og:image" content="assets/logo.png"><meta name="theme-color" content="#1c2b44">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -252,10 +253,11 @@
       <a href="https://2.31.182.159/download" class="btn btn-lime magnetic">اشترك من التطبيق</a>
     </div>
     <div class="plan reveal">
+      <div class="pop-tag">جديد</div>
       <h3>عائلي</h3>
-      <div class="price"><b>قريباً</b></div>
-      <ul><li>لكل أفراد العيلة</li><li>حسابات متعددة</li><li>السعر هيتحدد قريب</li></ul>
-      <span class="btn btn-ghost disabled">قريباً</span>
+      <div class="price"><b>٧٩</b> ج.م</div>
+      <ul><li>حسابين في سعر واحد</li><li>اللي بيدفع يبعت كود لفرد من العيلة</li><li>الكود بيفعّل الحساب التاني</li></ul>
+      <a href="https://2.31.182.159/download" class="btn btn-ghost magnetic">اشترك من التطبيق</a>
     </div>
   </div>
 </section>
@@ -293,6 +295,12 @@
     <video id="vm-video" controls playsinline></video>
   </div>
 </div>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="sec-head reveal"><span class="sec-tag">أسئلة شائعة</span><h2>عندك <em>سؤال؟</em></h2></div>
+  <div class="faq-list" id="faq-list"><details class="faq-item"><summary>التطبيق متاح فين؟</summary><p>متاح دلوقتي لأندرويد بتحميل مباشر (APK)، وعلى جوجل بلاي من ١ ديسمبر ٢٠٢٦.</p></details><details class="faq-item"><summary>إيه الفرق بين الباقات؟</summary><p>بلس الشهري ٤٩ ج.م والسنوي ٣٩٩ ج.م، وكلهم بدون إعلانات ومزايا إضافية. الباقة العائلية ٧٩ ج.م بتديك حسابين.</p></details><details class="faq-item"><summary>إزاي الحساب العائلي بيشتغل؟</summary><p>اللي بيدفع بيبعت كود لأي حد من العيلة، والكود لما يتدخل بيفعّل حساب تاني معاك.</p></details><details class="faq-item"><summary>التطبيق ببلاش؟</summary><p>أيوه، تقدر تستخدم التطبيق ببلاش. باقات بلس لمزايا إضافية وبدون إعلانات.</p></details></div>
+</section>
 
 <!-- DOWNLOAD -->
 <section id="download" class="section">
@@ -341,5 +349,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="app.js"></script>
+<script src="site.js"></script>
+<button id="to-top" aria-label="أعلى">↑</button>
 </body>
 </html>

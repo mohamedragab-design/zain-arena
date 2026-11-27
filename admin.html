@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>لوحة تحكم زين أرينا</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Cairo,Tahoma,sans-serif;background:#1c2b44;color:#f4f7ff;line-height:1.6}
+.wrap{max-width:920px;margin:0 auto;padding:20px}h1{color:#3dff6a;font-size:24px}
+.card{background:#2d4266;border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px;margin:12px 0}
+input,textarea,select{width:100%;background:#1c2b44;border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:10px;padding:9px;font:inherit;margin:4px 0}
+textarea{min-height:70px}button{background:#3dff6a;color:#04110a;border:0;border-radius:10px;padding:9px 16px;font:inherit;font-weight:700;cursor:pointer;margin:3px}
+button.g{background:#36507a;color:#fff}button.r{background:#ff4d5a;color:#fff}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.tabs button{background:#36507a;color:#fff}.tabs button.on{background:#3dff6a;color:#04110a}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.row>*{flex:1 1 140px}.row .s{flex:0 0 auto}
+video{width:90px;border-radius:8px}small{color:#d0dbee}#msg{position:sticky;top:0;padding:10px;border-radius:10px;margin:8px 0;display:none}
+#msg.ok{display:block;background:#1f6b3a}#msg.err{display:block;background:#8a2431}.hide{display:none}
+</style></head><body><div class="wrap">
+<h1>لوحة تحكم زين أرينا</h1><div id="msg"></div>
+<div id="login" class="card">
+<p>الدخول بتوكن GitHub خاص بيك (مش بيتخزن في الموقع ولا في الكود، بيتحفظ في متصفحك بس).</p>
+<input id="tok" type="password" placeholder="GitHub token (github_pat_...)" autocomplete="off">
+<label><input id="rem" type="checkbox" style="width:auto"> افتكرني على الجهاز ده</label><br>
+<button id="go">دخول</button></div>
+<div id="app" class="hide">
+<div class="tabs"><button data-t="videos" class="on">الفيديوهات</button><button data-t="plans">الباقات</button><button data-t="links">اللينكات</button><button data-t="faq">الأسئلة</button><button class="s r" id="out">خروج</button></div>
+<div id="view"></div>
+<div class="card"><button id="save">💾 حفظ ونشر</button> <small>التعديلات بتظهر على الموقع بعد حوالي دقيقة.</small></div></div>
+</div>
+<script>
+var REPO='mohamedragab-design/zain-arena',API='https://api.github.com/repos/'+REPO+'/contents/',TOK='',C=null,SHA='',TAB='videos';
+function $(i){return document.getElementById(i)}
+function msg(t,k){var m=$('msg');m.textContent=t;m.className=k||'ok';if(k!=='err')setTimeout(function(){m.className=''},5000)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function hdr(){return {'Authorization':'Bearer '+TOK,'Accept':'application/vnd.github+json'}}
+function b64(s){return btoa(unescape(encodeURIComponent(s)))}
+function load(){return fetch(API+'content.json?ref=main&t='+Date.now(),{headers:hdr()}).then(function(r){if(!r.ok)throw new Error(r.status===401||r.status===403?'التوكن مش صالح أو مالوش صلاحية':'مش قادر أقرأ الملف ('+r.status+')');return r.json()}).then(function(j){SHA=j.sha;C=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))));})}
+function start(){load().then(function(){$('login').classList.add('hide');$('app').classList.remove('hide');render()}).catch(function(e){msg(e.message,'err')})}
+$('go').onclick=function(){TOK=$('tok').value.trim();if(!TOK)return;if($('rem').checked)localStorage.setItem('za_tok',TOK);else sessionStorage.setItem('za_tok',TOK);$('tok').value='';start()};
+$('out').onclick=function(){localStorage.removeItem('za_tok');sessionStorage.removeItem('za_tok');location.reload()};
+TOK=sessionStorage.getItem('za_tok')||localStorage.getItem('za_tok')||'';if(TOK)start();
+document.querySelectorAll('.tabs [data-t]').forEach(function(b){b.onclick=function(){TAB=b.dataset.t;document.querySelectorAll('.tabs [data-t]').forEach(function(x){x.classList.toggle('on',x===b)});render()}});
+function inp(path,val,ph,ta){return (ta?'<textarea':'<input')+' data-p="'+path+'" placeholder="'+(ph||'')+'"'+(ta?'>'+esc(val)+'</textarea>':' value="'+esc(val)+'">')}
+function render(){var h='';
+ if(TAB==='videos'){h+='<div class="card"><b>إضافة فيديو</b><input id="vtitle" placeholder="عنوان الفيديو"><input id="vfile" type="file" accept="video/mp4"><button id="vadd">رفع وإضافة</button><br><small>فيديو mp4 لحد حوالي ٢٠ ميجا.</small></div>';
+  C.videos.forEach(function(v,i){h+='<div class="card"><div class="row"><video src="'+esc(v.src)+'" muted></video>'+inp('videos.'+i+'.title',v.title,'العنوان')+'<span class="s"><label><input type="checkbox" style="width:auto" data-c="videos.'+i+'.visible" '+(v.visible!==false?'checked':'')+'> ظاهر</label><button class="g" data-a="up" data-i="'+i+'">↑</button><button class="g" data-a="dn" data-i="'+i+'">↓</button><button class="r" data-a="delv" data-i="'+i+'">حذف</button></span></div></div>'});}
+ if(TAB==='plans'){C.plans.forEach(function(p,i){h+='<div class="card"><div class="row">'+inp('plans.'+i+'.name',p.name,'الاسم')+inp('plans.'+i+'.price',p.price,'السعر')+inp('plans.'+i+'.unit',p.unit,'الوحدة')+inp('plans.'+i+'.tag',p.tag,'شارة (اختياري)')+'</div>'+inp('plans.'+i+'.features',(p.features||[]).join('\n'),'المزايا (سطر لكل ميزة)',1)+inp('plans.'+i+'.cta',p.cta,'نص الزرار')+'<label><input type="checkbox" style="width:auto" data-c="plans.'+i+'.popular" '+(p.popular?'checked':'')+'> مميزة</label> <button class="r" data-a="delp" data-i="'+i+'">حذف الباقة</button></div>'});h+='<button data-a="addp">+ باقة</button>'}
+ if(TAB==='links'){['app','me'].forEach(function(g){h+='<h3>'+(g==='app'?'زين أرينا':'محمد رجب')+'</h3>';C.links[g].forEach(function(l,i){h+='<div class="card"><div class="row">'+inp('links.'+g+'.'+i+'.icon',l.icon,'أيقونة')+inp('links.'+g+'.'+i+'.title',l.title,'العنوان')+inp('links.'+g+'.'+i+'.sub',l.sub,'وصف')+inp('links.'+g+'.'+i+'.url',l.url,'الرابط')+'<button class="r s" data-a="dell" data-g="'+g+'" data-i="'+i+'">حذف</button></div></div>'});h+='<button data-a="addl" data-g="'+g+'">+ لينك</button>'})}
+ if(TAB==='faq'){C.faq.forEach(function(q,i){h+='<div class="card">'+inp('faq.'+i+'.q',q.q,'السؤال')+inp('faq.'+i+'.a',q.a,'الإجابة',1)+'<button class="r" data-a="delf" data-i="'+i+'">حذف</button></div>'});h+='<button data-a="addf">+ سؤال</button>'}
+ $('view').innerHTML=h}
+function setp(path,val){var k=path.split('.'),o=C;for(var i=0;i<k.length-1;i++)o=o[k[i]];var last=k[k.length-1];if(last==='features')val=val.split('\n').filter(Boolean);o[last]=val}
+$('view').addEventListener('input',function(e){var t=e.target;if(t.dataset.p)setp(t.dataset.p,t.value)});
+$('view').addEventListener('change',function(e){var t=e.target;if(t.dataset.c)setp(t.dataset.c,t.checked)});
+function swap(a,i,j){if(j<0||j>=a.length)return;var t=a[i];a[i]=a[j];a[j]=t}
+$('view').addEventListener('click',function(e){var b=e.target.closest('[data-a]');if(!b)return;var a=b.dataset.a,i=+b.dataset.i,g=b.dataset.g;
+ if(a==='up')swap(C.videos,i,i-1);else if(a==='dn')swap(C.videos,i,i+1);
+ else if(a==='delv'){if(!confirm('حذف الفيديو من الموقع؟'))return;var v=C.videos[i];C.videos.splice(i,1);if(v.src.indexOf('assets/')===0&&confirm('تمسح ملف الفيديو نفسه من المستودع كمان؟'))delFile(v.src)}
+ else if(a==='delp'){if(confirm('حذف الباقة؟'))C.plans.splice(i,1)}else if(a==='addp')C.plans.push({name:'باقة جديدة',price:'٠',unit:'ج.م',features:[],cta:'اشترك من التطبيق',popular:false,tag:''});
+ else if(a==='dell'){if(confirm('حذف اللينك؟'))C.links[g].splice(i,1)}else if(a==='addl')C.links[g].push({icon:'🔗',title:'لينك جديد',sub:'',url:'https://'});
+ else if(a==='delf'){if(confirm('حذف السؤال؟'))C.faq.splice(i,1)}else if(a==='addf')C.faq.push({q:'سؤال جديد',a:''});
+ else if(a==='vadd'){}
+ render()});
+$('view').addEventListener('click',function(e){if(e.target.id!=='vadd')return;var f=$('vfile').files[0],t=$('vtitle').value.trim()||'فيديو جديد';if(!f)return msg('اختار ملف فيديو','err');if(f.size>25e6)return msg('الملف كبير (أقصى ٢٥ ميجا)','err');
+ var name='assets/vid-'+Date.now()+'.mp4',rd=new FileReader();msg('جاري الرفع...');
+ rd.onload=function(){var s=rd.result.split(',')[1];fetch(API+name,{method:'PUT',headers:hdr(),body:JSON.stringify({message:'admin: add video',content:s,branch:'main'})}).then(function(r){if(!r.ok)throw new Error('فشل الرفع '+r.status);C.videos.push({title:t,src:name,visible:true});render();msg('اترفع. دوس حفظ ونشر عشان يظهر.')}).catch(function(x){msg(x.message,'err')})};rd.readAsDataURL(f)});
+function delFile(p){fetch(API+p+'?ref=main',{headers:hdr()}).then(function(r){return r.json()}).then(function(j){return fetch(API+p,{method:'DELETE',headers:hdr(),body:JSON.stringify({message:'admin: delete video file',sha:j.sha,branch:'main'})})}).then(function(r){msg(r.ok?"اتمسح الملف":"مقدرتش أمسح الملف",r.ok?"ok":"err")}).catch(function(){})}
+$('save').onclick=function(){msg('جاري الحفظ...');fetch(API+'content.json',{method:'PUT',headers:hdr(),body:JSON.stringify({message:'admin: update content',content:b64(JSON.stringify(C,null,1)),sha:SHA,branch:'main'})}).then(function(r){if(!r.ok)throw new Error('فشل الحفظ ('+r.status+')'+(r.status===404?' - التوكن محتاج صلاحية Contents: Read and write':''));return r.json()}).then(function(j){SHA=j.content.sha;msg('اتحفظ. التعديل هيظهر على الموقع بعد حوالي دقيقة.')}).catch(function(e){msg(e.message,'err')})};
+</script></body></html>
