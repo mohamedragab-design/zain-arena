@@ -47,22 +47,6 @@
   })();
 
   // Particles (stadium dust)
-  var cv = document.getElementById('particles'), ctx = cv.getContext('2d');
-  var P = [];
-  function resize(){ cv.width = innerWidth; cv.height = innerHeight; }
-  resize(); window.addEventListener('resize', resize);
-  for (var i=0;i<70;i++) P.push({x:Math.random()*innerWidth, y:Math.random()*innerHeight, r:Math.random()*1.8+.4, s:Math.random()*.35+.08, o:Math.random()*.5+.15, drift:Math.random()*.4-.2});
-  (function drawP(){
-    ctx.clearRect(0,0,cv.width,cv.height);
-    P.forEach(function(p){
-      p.y -= p.s; p.x += p.drift;
-      if (p.y < -5){ p.y = cv.height+5; p.x = Math.random()*cv.width; }
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7);
-      ctx.fillStyle = 'rgba(61,255,106,'+p.o+')'; ctx.fill();
-    });
-    requestAnimationFrame(drawP);
-  })();
-
   // Hero phone tilt
   var phone = document.getElementById('hero-phone');
   var hv = document.querySelector('.hero-visual');
@@ -126,6 +110,24 @@
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.style.opacity=1; el.style.transform='none'; });
   }
+
+  // Football kick (scroll driven, smooth)
+  (function(){
+    var k=document.getElementById('kick'); if(!k) return;
+    var ball=document.getElementById('kick-ball'), sh=document.getElementById('kick-shadow'), tx=document.getElementById('kick-txt');
+    function upd(){
+      var r=k.getBoundingClientRect(), vh=innerHeight;
+      var p=(vh-r.top)/(vh+r.height*0.4); p=Math.max(0,Math.min(1,p*1.25-0.1)); p=Math.min(1,p);
+      var W=k.clientWidth, bw=ball.offsetWidth, H=k.clientHeight;
+      var x0=W-bw-30, x1=50, x=x0+(x1-x0)*p;
+      var arc=Math.sin(Math.PI*Math.min(1,p*1.0))*(H*0.55);
+      var ground=H-bw-26, y=ground-arc*(1-p*0.3);
+      ball.style.transform='translate('+x+'px,'+y+'px) rotate('+(-p*1080)+'deg)';
+      sh.style.transform='translate('+(x+4)+'px,0) scale('+(1-arc/H*0.6)+')';
+      if(p>=0.97) tx.classList.add('on'); else if(p<0.7) tx.classList.remove('on');
+    }
+    upd(); window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd);
+  })();
 
   // Stable reveals: show once, never hide again
   (function(){
