@@ -116,23 +116,27 @@
     gsap.registerPlugin(ScrollTrigger);
     if (lenis) lenis.on('scroll', ScrollTrigger.update);
     // Hero reveals play on load, not on scroll
-    gsap.to('#hero .reveal', {opacity:1, y:0, duration:1, ease:'power3.out', stagger:.12, delay:1.5});
-    document.querySelectorAll('.reveal').forEach(function(el, i){
-      if (el.closest('#hero')) return;
-      gsap.to(el, {opacity:1, y:0, duration:.9, ease:'power3.out',
-        scrollTrigger:{trigger:el, start:'top 88%'}, delay:(i%4)*.06});
-    });
     document.querySelectorAll('[data-count]').forEach(function(el){
       var end = parseInt(el.dataset.count,10);
       ScrollTrigger.create({trigger:el, start:'top 90%', once:true, onEnter:function(){
         gsap.fromTo(el, {innerText:0}, {innerText:end, duration:1.6, snap:{innerText:1}, ease:'power2.out',
-          onUpdate:function(){ el.innerText = Math.round(parseFloat(el.innerText)); }});
+          onUpdate:function(){ el.innerText = Math.round(parseFloat(el.innerText)); }, onComplete:function(){ el.innerText = end; }});
       }});
     });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.style.opacity=1; el.style.transform='none'; });
   }
 
+  // Stable reveals: show once, never hide again
+  (function(){
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    function show(e){e.classList.add('in');}
+    if(!('IntersectionObserver' in window)){els.forEach(show);return;}
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){show(x.target);io.unobserve(x.target);}});},{threshold:0,rootMargin:'0px 0px -5% 0px'});
+    els.forEach(function(e){io.observe(e);});
+    setTimeout(function(){els.forEach(function(e){if(e.getBoundingClientRect().top<innerHeight*1.2)show(e);});},2200);
+    window.addEventListener('load',function(){setTimeout(function(){els.forEach(function(e){if(e.getBoundingClientRect().top<innerHeight)show(e);});},300);});
+  })();
   // Safety net: never leave content invisible
   setTimeout(function(){
     document.querySelectorAll('.reveal').forEach(function(el){

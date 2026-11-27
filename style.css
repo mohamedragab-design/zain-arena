@@ -1,7 +1,7 @@
 :root{--g1:#3dff6a;--g2:#16c24a;--silver:#dfe5ee;
-  --bg:#05080a; --bg2:#0a1210; --card:#0f1714; --card2:#142320;
+  --bg:#0d1714; --bg2:#14231d; --card:#192823; --card2:#20332c;
   --lime:#3dff6a; --lime2:#16c24a; --blue:#c9d4e3; --red:#ff2d3d;
-  --txt:#eef2ff; --mut:#93a0c4; --line:rgba(255,255,255,.08);
+  --txt:#f4f7ff; --mut:#b3bfd6; --line:rgba(255,255,255,.08);
   --r:22px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -247,3 +247,23 @@ footer{position:relative;z-index:3;border-top:1px solid var(--line);background:r
 .hero-title{text-shadow:0 0 60px rgba(61,255,106,.18)}
 .float-card,.phone-frame{animation:none}
 .vid-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+
+/* v3: stable + lighter */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.feat-card::after,.contest-card::after{display:none!important}
+.shot:hover{transform:none}
+.vid-stack{display:flex;flex-direction:column;gap:34px;align-items:center;max-width:440px;margin:0 auto}
+.vid-wrap{width:100%}
+.vid-title{font-family:'Changa',sans-serif;font-weight:700;font-size:18px;color:var(--lime)}
+.vid-v{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000;border-radius:20px;border:1px solid rgba(255,255,255,.14);display:block}
+.vid-links a{font-size:13px;padding:8px 10px}
+.links-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;max-width:900px;margin:0 auto}
+.links-col{display:flex;flex-direction:column;gap:12px}
+.links-col h3{font-size:22px;color:var(--lime);margin-bottom:4px}
+.link-card{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:18px;background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid rgba(255,255,255,.12);color:var(--txt);text-decoration:none;transition:border-color .25s,background .25s}
+.link-card:hover{border-color:var(--lime);background:var(--card2)}
+.lk-ico{font-size:24px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(61,255,106,.12)}
+.lk-t{flex:1;display:flex;flex-direction:column}
+.lk-t small{color:var(--mut);direction:ltr;text-align:right}
+.lk-go{color:var(--lime);font-size:20px}
