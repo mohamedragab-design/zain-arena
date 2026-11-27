@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAIN ARENA | زين أرينا — ساحة واحدة لكل الرياضات</title>
+<meta name="description" content="زين أرينا: نتائج مباشرة، أخبار، ريلز، مصارعة، مسابقات وتوقعات، مقارنات لاعبين، ومتجر رياضي — كل الرياضات في تطبيق واحد.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="pre-inner">
+    <img src="assets/logo.png" alt="ZAIN ARENA" class="pre-logo">
+    <div class="pre-bar"><span></span></div>
+    <div class="pre-txt">ZAIN ARENA</div>
+  </div>
+</div>
+
+<!-- Cursor -->
+<div class="cursor-dot"></div>
+<div class="cursor-glow"></div>
+
+<!-- BG layers -->
+<div class="bg-mesh"></div>
+<canvas id="particles"></canvas>
+<div class="noise"></div>
+
+<!-- Nav -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand">
+      <img src="assets/logo.png" alt="ZAIN ARENA">
+      <span>ZAIN <b>ARENA</b></span>
+    </a>
+    <nav class="links">
+      <a href="#features">الأقسام</a>
+      <a href="#showcase">لقطات</a>
+      <a href="#contests">المسابقات</a>
+      <a href="#plus">بلس</a>
+      <a href="#videos">فيديوهات</a>
+    </nav>
+    <a href="https://2.31.182.159/download" class="btn btn-lime btn-sm magnetic">حمّل التطبيق</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-badge reveal">
+        <span class="pulse-dot"></span> التطبيق الرسمي — متاح للأندرويد
+      </div>
+      <h1 class="hero-title">
+        <span class="line reveal">ساحة واحدة</span>
+        <span class="line reveal">لكل <em>الرياضات</em></span>
+      </h1>
+      <p class="hero-sub reveal">نتائج لحظة بلحظة، أخبار وريلز، مصارعة WWE وAEW، توقعات ومسابقات بجوائز، مقارنات لاعبين بلهجتك، ومتجر رياضي — كله في مكان واحد.</p>
+      <div class="hero-cta reveal">
+        <a href="https://2.31.182.159/download" class="btn btn-lime btn-lg magnetic">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M5 20h14v-2H5v2zM12 2L5.5 8.5l1.42 1.42L11 5.84V16h2V5.84l4.08 4.08L18.5 8.5 12 2z"/></svg>
+          تحميل مباشر APK
+        </a>
+        <a href="#showcase" class="btn btn-ghost btn-lg magnetic">شوف التطبيق</a>
+      </div>
+      <div class="hero-note reveal">على جوجل بلاي ابتداءً من ١ ديسمبر ٢٠٢٦</div>
+      <div class="hero-stats reveal">
+        <div class="stat"><b data-count="9">0</b><span>أقسام رياضية</span></div>
+        <div class="stat"><b data-count="30">0</b><span>+ رياضة مختلفة</span></div>
+        <div class="stat"><b data-count="24">0</b><span>/٧ تغطية مباشرة</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone tilt" id="hero-phone">
+        <div class="phone-frame">
+          <img src="assets/shot-home.png" alt="الشاشة الرئيسية لتطبيق زين أرينا">
+        </div>
+        <div class="phone-glow"></div>
+      </div>
+      <div class="float-card fc-1 tilt-sm"><img src="assets/shot-live.png" alt="مباراة مباشرة"></div>
+      <div class="float-card fc-2 tilt-sm"><img src="assets/shot-compare.png" alt="مقارنة لاعبين"></div>
+      <div class="float-badge fb-1">⚽ هدف الآن!</div>
+      <div class="float-badge fb-2">🏆 كرت أسطوري</div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span></div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>⚽ كرة قدم</span><span>🤼 مصارعة WWE</span><span>🏀 كرة سلة</span><span>🤾 كرة يد</span><span>🏐 كرة طائرة</span><span>🏒 هوكي</span><span>⚾ بيسبول</span><span>🏉 رجبي</span><span>📊 إحصائيات مباشرة</span><span>🎯 توقعات وجوائز</span><span>👑 كروت الأساطير</span><span>🛒 متجر رياضي</span>
+    <span>⚽ كرة قدم</span><span>🤼 مصارعة WWE</span><span>🏀 كرة سلة</span><span>🤾 كرة يد</span><span>🏐 كرة طائرة</span><span>🏒 هوكي</span><span>⚾ بيسبول</span><span>🏉 رجبي</span><span>📊 إحصائيات مباشرة</span><span>🎯 توقعات وجوائز</span><span>👑 كروت الأساطير</span><span>🛒 متجر رياضي</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features" class="section">
+  <div class="sec-head reveal">
+    <span class="sec-tag">الأقسام</span>
+    <h2>كل اللي محتاجه كمشجع، <em>في تطبيق واحد</em></h2>
+    <p>مش بس نتائج — دي ساحة كاملة معمولة عشان تعيش الماتش.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card spotlight reveal">
+      <div class="feat-ico">⚽</div>
+      <h3>نتائج ومباريات مباشرة</h3>
+      <p>تابع كل مباريات اليوم من كل البطولات، ونتيجة الماتش لحظة بلحظة مع إشعارات أهداف فورية.</p>
+    </div>
+    <div class="feat-card spotlight reveal">
+      <div class="feat-ico">🔔</div>
+      <h3>ملخص «فاتني إيه؟»</h3>
+      <p>أهم أخبار اليوم في دقيقة — صوت أو نص. ميزة مش هتلاقيها في حد تاني.</p>
+    </div>
+    <div class="feat-card spotlight reveal">
+      <div class="feat-ico">🎬</div>
+      <h3>ريلز وأخبار</h3>
+      <p>ريلز يومية بأهم اللقطات والأخبار، مصادر رسمية موثوقة، وقراءة صوتية للنقاط المهمة.</p>
+    </div>
+    <div class="feat-card spotlight reveal">
+      <div class="feat-ico">🤼</div>
+      <h3>مصارعة WWE وAEW</h3>
+      <p>أخبار، أبطال، نتائج العروض الأسبوعية والشهرية — قسم كامل لعشاق المصارعة.</p>
+    </div>
+    <div class="feat-card spotlight reveal">
+      <div class="feat-ico">🌍</div>
+      <h3>كل الرياضات</h3>
+      <p>سلة، يد، طائرة، هوكي، بيسبول، رجبي وأكتر — تغطية واحدة لكل الألعاب.</p>
+    </div>
+    <div class="feat-card spotlight reveal">
+      <div class="feat-ico">⚖️</div>
+      <h3>مقارنات بلهجتك</h3>
+      <p>قارن بين أي لاعبين بإحصائيات رسمية وتحليل بالأرقام — مصري، سعودي أو فصحى.</p>
+    </div>
+    <div class="feat-card spotlight reveal">
+      <div class="feat-ico">📈</div>
+      <h3>جداول وترتيب</h3>
+      <p>ترتيب البطولات ومواجهات الفرق المباشرة محدثة أول بأول.</p>
+    </div>
+    <div class="feat-card spotlight reveal">
+      <div class="feat-ico">🗳️</div>
+      <h3>تصويت الجماهير</h3>
+      <p>صوّت مع الجمهور وشوف النسب بتتحرك لايف أثناء الماتش.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section id="showcase" class="section">
+  <div class="sec-head reveal">
+    <span class="sec-tag">لقطات من التطبيق</span>
+    <h2>شوف <em>زين أرينا</em> من جوه</h2>
+  </div>
+  <div class="shots" id="shots-track">
+    <figure class="shot tilt-sm"><img src="assets/shot-home.png" alt="الرئيسية"><figcaption>الرئيسية</figcaption></figure>
+    <figure class="shot tilt-sm"><img src="assets/shot-matches.png" alt="المباريات"><figcaption>المباريات</figcaption></figure>
+    <figure class="shot tilt-sm"><img src="assets/shot-live.png" alt="ماتش مباشر"><figcaption>تفاصيل الماتش لايف</figcaption></figure>
+    <figure class="shot tilt-sm"><img src="assets/shot-reels.png" alt="ريلز"><figcaption>الريلز</figcaption></figure>
+    <figure class="shot tilt-sm"><img src="assets/shot-compare.png" alt="قارن"><figcaption>مركز المقارنات</figcaption></figure>
+  </div>
+</section>
+
+<!-- CONTESTS -->
+<section id="contests" class="section">
+  <div class="sec-head reveal">
+    <span class="sec-tag">المسابقات والنقاط</span>
+    <h2>العب، توقّع، <em>واكسب</em></h2>
+    <p>نظام نقاط كامل يخلي كل ماتش ليه طعم تاني.</p>
+  </div>
+  <div class="contest-grid">
+    <div class="contest-card big spotlight reveal">
+      <div class="crown">👑</div>
+      <h3>كروت الأساطير</h3>
+      <p>اجمع كروت اللاعبين الأسطورية بمستويات فضي وذهبي وأسطوري، وكمل مجموعتك.</p>
+      <div class="tiers"><span class="tier silver">فضي</span><span class="tier gold">ذهبي</span><span class="tier legend">أسطوري</span></div>
+    </div>
+    <div class="contest-card spotlight reveal">
+      <h3>🎯 توقعات المباريات</h3>
+      <p>توقع نتيجة كل ماتش واكسب نقاط مع كل توقع صح.</p>
+    </div>
+    <div class="contest-card spotlight reveal">
+      <h3>👥 دوري الأصحاب</h3>
+      <p>اعمل دوري خاص بيك وبصحابك وشوف مين الأفهم في الكورة.</p>
+    </div>
+    <div class="contest-card spotlight reveal">
+      <h3>🎓 اختبار الخبراء</h3>
+      <p>اختبر معلوماتك وخد شهادة خبير باسمك.</p>
+    </div>
+    <div class="contest-card spotlight reveal">
+      <h3>🔨 مزاد النقاط</h3>
+      <p>زايد بنقاطك على كروت نادرة ومكافآت حصرية.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORE -->
+<section id="store" class="section">
+  <div class="sec-head reveal">
+    <span class="sec-tag">المتجر</span>
+    <h2>متجر <em>رياضي</em> جوه التطبيق</h2>
+    <p>أحذية، تيشيرتات وأطقم، أدوات تمرين، إكسسوارات، وأحزمة مصارعة — بخصومات مستمرة.</p>
+  </div>
+  <div class="store-strip reveal">
+    <span>👟 أحذية</span><span>👕 أطقم وتيشيرتات</span><span>🏋️ أدوات تمرين</span><span>🎒 إكسسوارات</span><span>🏆 أحزمة مصارعة</span><span>💸 خصومات</span>
+  </div>
+</section>
+
+<!-- PLUS -->
+<section id="plus" class="section">
+  <div class="sec-head reveal">
+    <span class="sec-tag">ZAIN ARENA بلس</span>
+    <h2>بلاش إعلانات، <em>ومزايا أكتر</em></h2>
+  </div>
+  <div class="plans">
+    <div class="plan reveal">
+      <h3>شهري</h3>
+      <div class="price"><b>٤٩</b> ج.م / شهر</div>
+      <ul><li>بدون إعلانات</li><li>مزايا إضافية في التوقعات</li><li>مزايا دوري الأصحاب</li></ul>
+      <a href="https://2.31.182.159/download" class="btn btn-ghost magnetic">اشترك من التطبيق</a>
+    </div>
+    <div class="plan popular reveal">
+      <div class="pop-tag">الأوفر</div>
+      <h3>سنوي</h3>
+      <div class="price"><b>٣٩٩</b> ج.م / سنة</div>
+      <ul><li>كل مزايا الشهري</li><li>شهرين تقريباً هدية</li><li>أفضل قيمة</li></ul>
+      <a href="https://2.31.182.159/download" class="btn btn-lime magnetic">اشترك من التطبيق</a>
+    </div>
+    <div class="plan reveal">
+      <h3>عائلي</h3>
+      <div class="price"><b>قريباً</b></div>
+      <ul><li>لكل أفراد العيلة</li><li>حسابات متعددة</li><li>السعر هيتحدد قريب</li></ul>
+      <span class="btn btn-ghost disabled">قريباً</span>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos" class="section">
+  <div class="sec-head reveal">
+    <span class="sec-tag">من قناة زين أرينا</span>
+    <h2>فيديوهات <em>الساحة</em></h2>
+    <p>اضغط على أي فيديو عشان تسمعه.</p>
+  </div>
+  <div class="vid-grid">
+    <div class="vid reveal" data-src="assets/vid-trophies.mp4"><video src="assets/vid-trophies.mp4" muted loop playsinline preload="metadata"></video><span class="vid-play">▶</span><span class="vid-cap">كاسات وأنبوبة 🏆</span></div>
+    <div class="vid reveal" data-src="assets/vid-backkick.mp4"><video src="assets/vid-backkick.mp4" muted loop playsinline preload="metadata"></video><span class="vid-play">▶</span><span class="vid-cap">مقصية في الوش</span></div>
+    <div class="vid reveal" data-src="assets/vid-doctor.mp4"><video src="assets/vid-doctor.mp4" muted loop playsinline preload="metadata"></video><span class="vid-play">▶</span><span class="vid-cap">دكتور الكورة</span></div>
+    <div class="vid reveal" data-src="assets/vid-coach.mp4"><video src="assets/vid-coach.mp4" muted loop playsinline preload="metadata"></video><span class="vid-play">▶</span><span class="vid-cap">الكابتن</span></div>
+    <div class="vid reveal" data-src="assets/vid-alarm.mp4"><video src="assets/vid-alarm.mp4" muted loop playsinline preload="metadata"></video><span class="vid-play">▶</span><span class="vid-cap">منبّه الأهداف</span></div>
+    <div class="vid reveal" data-src="assets/vid-charger.mp4"><video src="assets/vid-charger.mp4" muted loop playsinline preload="metadata"></video><span class="vid-play">▶</span><span class="vid-cap">الشاحن</span></div>
+  </div>
+</section>
+
+<!-- Video modal -->
+<div id="vid-modal">
+  <div class="vm-backdrop"></div>
+  <div class="vm-box">
+    <button class="vm-close">✕</button>
+    <video id="vm-video" controls playsinline></video>
+  </div>
+</div>
+
+<!-- DOWNLOAD -->
+<section id="download" class="section">
+  <div class="dl-card reveal">
+    <img src="assets/logo.png" alt="ZAIN ARENA" class="dl-logo">
+    <h2>جاهز تدخل <em>الساحة؟</em></h2>
+    <p>حمّل زين أرينا دلوقتي وخلي كل الرياضة في جيبك.</p>
+    <div class="dl-btns">
+      <a href="https://2.31.182.159/download" class="btn btn-lime btn-lg magnetic">⬇ تحميل APK مباشر</a>
+    </div>
+    <div class="dl-note">أندرويد — نسخة 1.0.21 — جوجل بلاي من ١ ديسمبر ٢٠٢٦</div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder" class="section">
+  <div class="founder-card reveal">
+    <span class="sec-tag">المؤسس</span>
+    <h3>محمد رجب</h3>
+    <p>مصمم جرافيك ومؤسس تطبيق زين أرينا — بيبني ساحة رياضية تليق بالجمهور العربي.</p>
+    <div class="founder-links">
+      <a href="https://mohamedragab-design.github.io/" target="_blank" rel="noopener">موقعه الشخصي</a>
+      <a href="https://www.behance.net/mohamedragab189" target="_blank" rel="noopener">بيهانس</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="ZAIN ARENA">
+      <div><b>ZAIN ARENA</b><span>One Arena. All Sports.</span></div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/zain_arena" target="_blank" rel="noopener">انستجرام</a>
+      <a href="https://www.tiktok.com/@zainarena.app1" target="_blank" rel="noopener">تيك توك</a>
+      <a href="https://www.youtube.com/@zain-arena" target="_blank" rel="noopener">يوتيوب</a>
+      <a href="https://www.facebook.com/profile.php?id=61595853699880" target="_blank" rel="noopener">فيسبوك</a>
+    </div>
+    <div class="foot-copy">© ٢٠٢٦ زين أرينا — كل الحقوق محفوظة</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
