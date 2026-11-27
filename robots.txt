@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mohamedragab-design.github.io/zain-arena/sitemap.xml
